@@ -12,13 +12,11 @@ export const useArticles = ({ username }: { username: string }) => {
       const response = await fetch(`https://dev.to/api/articles?username=${username}`);
       const data = await response.json();
 
-      setTimeout(() => {
         setArticles(data);
-      }, 5000);
     } catch (error) {
       console.error(error);
     } finally {
-      setIsLoading(false);
+        setIsLoading(false);
     }
   }
 
