@@ -5,14 +5,17 @@ import Noise from '../components/Noise';
 import { Article as ArticleType } from '@/interface/Article';
 import Link from 'next/link';
 import Music from '../components/Music';
+import PixelTransition from '@/components/PixelTransition';
 const images = [
   {
     src: '/assets/marcos.png',
     alt: 'Marcos',
+    secondImage: '/assets/marcos-real.png',
   },
   {
     src: '/assets/joao.png',
     alt: 'João',
+    secondImage: '/assets/marcos-real.png',
   },
 ];
 
@@ -37,15 +40,34 @@ const Avatars = () => (
     style={{ letterSpacing: '-0.6px' }}
   >
     {images.map((image) => (
-      <div
-        key={image.src}
-        className={`bg-top bg-no-repeat w-[140px] md:w-[220px] aspect-square rounded-full border-[2px] border-[#50380A]`}
-        style={{
-          backgroundImage: `url(${image.src})`,
-          backgroundSize: '100%',
-          letterSpacing: '-0.6px',
-        }}
-      />
+    <PixelTransition
+      firstContent={
+        <div
+            key={image.src}
+            className={`bg-top bg-no-repeat w-[140px] md:w-[220px] aspect-square rounded-full border-[2px] border-[#50380A]`}
+            style={{
+              backgroundImage: `url(${image.src})`,
+              backgroundSize: '100%',
+              letterSpacing: '-0.6px',
+            }}
+          />
+      }
+      secondContent={
+        <div
+            key={image.src}
+            className={`bg-top bg-no-repeat w-[140px] object-cover md:w-[220px] aspect-square rounded-full border-[2px] border-[#50380A]`}
+            style={{
+              backgroundImage: `url(${image.secondImage})`,
+              backgroundSize: '100%',
+              letterSpacing: '-0.6px',
+            }}
+          />
+      }
+      gridSize={11}
+      pixelColor='#ffffff'
+      animationStepDuration={0.4}
+      className="custom-pixel-card"
+    />
     ))}
   </div>
 );
