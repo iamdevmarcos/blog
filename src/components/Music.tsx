@@ -21,7 +21,8 @@ const Music = () => {
   };
 
   return (
-    <div className="fixed top-5 md:top-12 md:right-12 left-1/2 md:left-auto transform -translate-x-1/2 md:translate-x-0 z-50">
+    <div className="fixed top-0 left-1/2 transform -translate-x-1/2 md:top-12 md:right-12 md:left-auto md:transform-none z-50 p-2">
+
       <audio ref={audioRef} src="/assets/sounds/bg-music.mp3" loop />
 
         <img 
