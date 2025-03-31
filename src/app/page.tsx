@@ -4,7 +4,7 @@ import { useArticles } from '@/hooks/useArticles';
 import Noise from '../components/Noise';
 import { Article as ArticleType } from '@/interface/Article';
 import Link from 'next/link';
-
+import Music from '../components/Music';
 const images = [
   {
     src: '/assets/marcos.png',
@@ -33,7 +33,7 @@ const ArticleList = ({ articles }: { articles: ArticleType[] }) => (
 
 const Avatars = () => (
   <div
-    className="flex gap-8 md:gap-12 items-center justify-center mt-16"
+    className="flex gap-8 md:gap-12 items-center justify-center mt-24 md:mt-16"
     style={{ letterSpacing: '-0.6px' }}
   >
     {images.map((image) => (
@@ -85,13 +85,14 @@ const Home = () => {
 
   return (
     <div
-      className="bg-cover bg-center min-h-screen flex flex-col items-center gap-16"
+      className="bg-cover bg-center min-h-screen flex flex-col items-center gap-10 md:gap-16"
       style={{
         backgroundImage: "url('/assets/bg.png')",
         backgroundAttachment: 'fixed',
         letterSpacing: '-0.6px',
       }}
     >
+      <Music />
       <Noise />
       <Avatars />
       {isLoading ? (
