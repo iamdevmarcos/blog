@@ -11,11 +11,13 @@ const images = [
     src: '/assets/marcos.png',
     alt: 'Marcos',
     secondImage: '/assets/marcos-real.png',
+    picClass: '220px 290px'
   },
   {
     src: '/assets/joao.png',
     alt: 'João',
-    secondImage: '/assets/marcos-real.png',
+    secondImage: '/assets/joao-real.png',
+    picClass: 'cover'
   },
 ];
 
@@ -53,15 +55,17 @@ const Avatars = () => (
           />
       }
       secondContent={
+        <>
         <div
             key={image.src}
             className={`bg-top bg-no-repeat w-[140px] object-cover md:w-[220px] aspect-square rounded-full border-[2px] border-[#50380A]`}
             style={{
               backgroundImage: `url(${image.secondImage})`,
-              backgroundSize: '100%',
+              backgroundSize: image.picClass,
               letterSpacing: '-0.6px',
             }}
           />
+        </>
       }
       gridSize={11}
       pixelColor='#ffffff'

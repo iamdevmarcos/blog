@@ -117,19 +117,16 @@ const PixelTransition: React.FC<PixelTransitionProps> = ({
 
   return (
     <div
-      ref={containerRef}
-      className={`
-        ${className}
-        rounded-full
-        w-[140px]
-        md:w-[220px]
-        relative
-        overflow-hidden
-      `}
-      style={style}
-      onMouseEnter={!isTouchDevice ? handleMouseEnter : undefined}
-      onMouseLeave={!isTouchDevice ? handleMouseLeave : undefined}
-      onClick={isTouchDevice ? handleClick : undefined}
+    ref={containerRef}
+    className={`rounded-full w-[140px] md:w-[220px] relative overflow-hidden ${className}`}
+    style={{
+      ...style,
+      clipPath: "circle(50% at 50% 50%)",
+      WebkitClipPath: "circle(50% at 50% 50%)",
+    }}
+    onMouseEnter={!isTouchDevice ? handleMouseEnter : undefined}
+    onMouseLeave={!isTouchDevice ? handleMouseLeave : undefined}
+    onClick={isTouchDevice ? handleClick : undefined}
     >
       <div style={{ paddingTop: aspectRatio }} />
 
@@ -137,7 +134,7 @@ const PixelTransition: React.FC<PixelTransitionProps> = ({
 
       <div
         ref={activeRef}
-        className="absolute inset-0 w-full h-full z-[2]"
+        className="absolute inset-0 w-full h-full z-[3]"
         style={{ display: "none" }}
       >
         {secondContent}
