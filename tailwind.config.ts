@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        ghibli: ["var(--font-ghibli)"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
