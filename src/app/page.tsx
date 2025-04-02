@@ -11,7 +11,7 @@ const images = [
     src: '/assets/marcos.png',
     alt: 'Marcos',
     secondImage: '/assets/marcos-real.png',
-    picClass: '220px 290px'
+    picClass: '220px 305px'
   },
   {
     src: '/assets/joao.png',
@@ -23,7 +23,7 @@ const images = [
 
 const ArticleList = ({ articles }: { articles: ArticleType[] }) => (
   <div
-    className="rounded-2xl bg-[#F5DD9C] border-[2px] border-[#653C00] w-full max-w-[90%] md:max-w-fit min-h-[450px] relative overflow-hidden"
+    className="font-ghibli rounded-2xl bg-[#F5DD9C] border-[2px] border-[#653C00] w-full max-w-[90%] md:max-w-fit min-h-[450px] relative overflow-hidden"
     style={{ letterSpacing: '-0.6px' }}
   >
     <div className="overflow-y-auto h-[400px] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-[#F5DD9C] [&::-webkit-scrollbar-thumb]:bg-[#653C00] [&::-webkit-scrollbar-thumb]:rounded-full">
@@ -43,9 +43,9 @@ const Avatars = () => (
   >
     {images.map((image) => (
     <PixelTransition
+    key={image.src}
       firstContent={
         <div
-            key={image.src}
             className={`bg-top bg-no-repeat w-[140px] md:w-[220px] aspect-square rounded-full border-[2px] border-[#50380A]`}
             style={{
               backgroundImage: `url(${image.src})`,
@@ -57,7 +57,6 @@ const Avatars = () => (
       secondContent={
         <>
         <div
-            key={image.src}
             className={`bg-top bg-no-repeat w-[140px] object-cover md:w-[220px] aspect-square rounded-full border-[2px] border-[#50380A]`}
             style={{
               backgroundImage: `url(${image.secondImage})`,
