@@ -6,18 +6,21 @@ import { Article as ArticleType } from '@/interface/Article';
 import Link from 'next/link';
 import Music from '../components/Music';
 import PixelTransition from '@/components/PixelTransition';
+
 const images = [
   {
     src: '/assets/marcos.png',
     alt: 'Marcos',
     secondImage: '/assets/marcos-real.png',
-    picClass: '220px 305px'
+    picClass: 'cover',
+    bgPosition: 'center -45px'
   },
   {
     src: '/assets/joao.png',
     alt: 'João',
     secondImage: '/assets/joao-real.png',
-    picClass: 'cover'
+    picClass: 'cover',
+    bgPosition: 'center'
   },
 ];
 
@@ -57,10 +60,11 @@ const Avatars = () => (
       secondContent={
         <>
         <div
-            className={`bg-top bg-no-repeat w-[140px] object-cover md:w-[220px] aspect-square rounded-full border-[2px] border-[#50380A]`}
+            className={`bg-no-repeat w-[140px] object-cover md:w-[220px] aspect-square rounded-full border-[2px] border-[#50380A]`}
             style={{
               backgroundImage: `url(${image.secondImage})`,
               backgroundSize: image.picClass,
+              backgroundPosition: image.bgPosition,
               letterSpacing: '-0.6px',
             }}
           />
